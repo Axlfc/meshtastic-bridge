@@ -169,3 +169,21 @@ class HealthStatus(BaseModel):
 
 
 RxEvent = TextEvent | TelemetryEvent | PositionEvent | NodeInfoEvent
+
+
+def get_event_topic(event: RxEvent) -> str:
+    """Devuelve el tópico MQTT correspondiente a un objeto RxEvent."""
+    config = getattr(event, "model_config", {})
+    if isinstance(config, dict):
+        extra = config.get("json_schema_extra", {})
+        if isinstance(extra, dict) and "topic" in extra:
+            return extra["topic"]
+    if isinstance(event, TextEvent):
+        return "meshtastic/rx/text"
+    if isinstance(event, TelemetryEvent):
+        return "meshtastic/rx/telemetry"
+    if isinstance(event, PositionEvent):
+        return "meshtastic/rx/position"
+    if isinstance(event, NodeInfoEvent):
+        return "meshtastic/rx/nodeinfo"
+    return "meshtastic/rx/event"

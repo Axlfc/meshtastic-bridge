@@ -1,0 +1,22 @@
+services:
+  meshtastic-bridge:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: meshtastic-bridge:latest
+    container_name: meshtastic-bridge
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - MESHBRIDGE_TRANSPORT__MODE=${TRANSPORT_MODE:-serial}
+      - MESHBRIDGE_TRANSPORT__SERIAL_PORT=/dev/ttyUSB0
+      - MESHBRIDGE_TRANSPORT__TCP_HOST=${TCP_HOST:-192.168.1.50}
+      - MESHBRIDGE_MQTT__HOST=${MQTT_HOST:-localhost}
+      - MESHBRIDGE_MQTT__PORT=${MQTT_PORT:-1883}
+      - MESHBRIDGE_LOGGING__LEVEL=INFO
+    devices:
+      - "${SERIAL_PORT:-/dev/ttyUSB0}:/dev/ttyUSB0"
+    volumes:
+      - ./data:/app/data
+      - ./config.yaml:/app/config.yaml:ro

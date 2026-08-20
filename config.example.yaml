@@ -1,0 +1,60 @@
+# Ejemplos de configuración para meshtastic-bridge
+
+transport:
+  mode: "serial" # 'serial' o 'tcp'
+  serial_port: "/dev/ttyUSB0"
+  tcp_host: "192.168.1.50"
+  tcp_port: 4403
+  reconnect_initial_delay_s: 1.0
+  reconnect_max_delay_s: 60.0
+  reconnect_jitter_s: 0.5
+  heartbeat_interval_s: 30.0
+  heartbeat_timeout_s: 90.0
+
+dedup:
+  window_size: 500
+  ttl_seconds: 30.0
+
+rate_limit:
+  min_interval_s: 5.0
+  bucket_capacity: 5
+  max_queue_size: 200
+
+mqtt:
+  host: "localhost"
+  port: 1883
+  username: null
+  password: null
+  tls: false
+  client_id: "meshtastic-bridge"
+  topic_prefix: "meshtastic"
+  keepalive: 60
+  qos: 0
+
+webhook:
+  enabled: false
+  urls:
+    - "http://localhost:5000/webhook"
+  timeout_s: 5.0
+  events:
+    - "text"
+    - "telemetry"
+    - "position"
+    - "nodeinfo"
+
+health:
+  host: "0.0.0.0"
+  port: 8080
+
+nodedb:
+  persist_path: "data/nodedb.json"
+  persist_interval_s: 60.0
+
+planner:
+  enabled: false
+  planned_topology_path: "data/tarragones_resultado.json"
+  match_radius_m: 300.0
+
+logging:
+  level: "INFO"
+  json_output: true

@@ -1,0 +1,17 @@
+{
+  "!a1b2c3d4": {
+    "node_id": "!a1b2c3d4",
+    "long_name": null,
+    "short_name": null,
+    "hw_model": null,
+    "mac_addr": null,
+    "last_seen": "2026-08-20T12:44:54.780659Z",
+    "last_rssi": null,
+    "last_snr": null,
+    "battery_level": null,
+    "voltage": null,
+    "latitude": null,
+    "longitude": null,
+    "altitude_m": null
+  }
+}
