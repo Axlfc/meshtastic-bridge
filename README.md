@@ -3,7 +3,7 @@
 [![Python Version](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.111%2B-009688.svg)](https://fastapi.tiangolo.com/)
 [![Docker](https://img.shields.io/badge/docker-multi--arch-blue.svg)](https://www.docker.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](LICENSE)
 
 **`meshtastic-bridge`** es un demonio *headless*, ultrarresistente y de alto rendimiento diseñado para actuar como puente bidireccional entre hardware de radiofrecuencia Mesh (**dispositivos compatibles con Meshtastic** mediante interfaz Serie UART/USB o TCP/WiFi) y sistemas externos a través de **MQTT** y **Webhooks HTTP**.
 
@@ -237,4 +237,4 @@ python3 -m pytest -v
 
 ## 📄 Licencia
 
-Este proyecto se distribuye bajo la licencia **MIT**. Ver `LICENSE` para más detalles.
+Este proyecto se distribuye bajo la licencia **GNU General Public License v3.0 (GPL-3.0)**. Ver `LICENSE` para más detalles.
